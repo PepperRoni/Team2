@@ -5,11 +5,11 @@ using UnityEngine;
 public class TreeFollower : MonoBehaviour
 {
     [Header("Enviorment")]
-    [SerializeField] private Transform tree;
+    public Transform tree;
 
     [Header("Settings")]
-    [SerializeField] private float distanceFromParent = 5;
-    [SerializeField] private float angle;
+    public float distanceFromParent = 5;
+    public float angle;
 
     #region Unity Overwrites
 
@@ -19,7 +19,7 @@ public class TreeFollower : MonoBehaviour
     }
 
     // Some checks to see if tree exists n stuff
-    private void Awake()
+    private void Start()
     {
         if (tree != null)
             return;
@@ -45,24 +45,18 @@ public class TreeFollower : MonoBehaviour
     // Will calculate the exact position and rotation for the object
     Vector3 CalculatePosition()
     {
-        Vector3 myPosition = this.transform.forward;
-
-        this.transform.rotation = Quaternion.Euler(0, angle, 0);
-
-        myPosition.x *= distanceFromParent;
-        myPosition.z *= distanceFromParent;
-
-        return tree.position + myPosition;
+        return tree.position + (Quaternion.Euler(0, angle, 0) * Vector3.forward * distanceFromParent); ;
     }
 
     // Updates the Target
     void UpdateTarget()
     {
-        var (newPosition, myPosition) = (CalculatePosition(), this.transform.position);
+        Vector3 newPosition = CalculatePosition();
+        Vector3 myPosition  = this.transform.position;
 
         this.transform.position = new Vector3(newPosition.x, myPosition.y, newPosition.z);
     }
 
-    public void Left(float amount) { angle -= amount; }
+    public void Left (float amount)  { angle -= amount; }
     public void Right(float amount) { angle += amount; }
 }
