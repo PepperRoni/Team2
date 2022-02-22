@@ -13,7 +13,7 @@ public class TreeFollower : MonoBehaviour
 
     #region Unity Overwrites
 
-    private void FixedUpdate()
+    private void Update()
     {
         UpdateTarget();
     }
