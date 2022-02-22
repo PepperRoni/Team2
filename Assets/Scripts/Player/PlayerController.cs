@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.Space))
         {
             rb.AddForce(Vector2.up * thrust);
         }
