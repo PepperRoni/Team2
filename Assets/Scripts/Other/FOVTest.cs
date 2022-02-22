@@ -23,13 +23,11 @@ public class FOVTest : MonoBehaviour
 
     Vector3 CalculatePosition()
     {
-
         Vector3 myPosition = this.transform.forward;
 
         this.transform.rotation = Quaternion.Euler(0, angle, 0);
 
         myPosition.x = myPosition.x * distanceFromParent;
-        //myPosition.y = myPosition.y * distanceFromParent;
         myPosition.z = myPosition.z * distanceFromParent;
 
         return rotationParent.position + myPosition;
