@@ -7,17 +7,26 @@ public class CameraMover : MonoBehaviour
     [Header("Enviorment")]
     [SerializeField] private Transform target;
 
-    #region Unity Overwrites
+    [Header("Settings")]
+    [SerializeField] private float distance = 7;
+    [SerializeField] private float followSpeed = 5;
 
-    private void Update()
-    {
-        if (target == null)
-            Debug.LogWarning("No Target Selected");
-    }
+    #region Unity Overwrites
 
     private void FixedUpdate()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, target.position, Time.deltaTime);
+        if (target == null)
+            return;
+
+        Vector3 lookDirection = (target.position - this.transform.position).normalized;
+
+        this.transform.rotation = Quaternion.LookRotation(lookDirection);
+
+        this.transform.position = Vector3.Lerp(
+            this.transform.position,
+            target.position + target.forward * distance, 
+            Time.deltaTime * followSpeed
+        );
     }
 
     #endregion
