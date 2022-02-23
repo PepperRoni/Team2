@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AcornSpawner : MonoBehaviour
+public class ObstacleSpawner : MonoBehaviour
 {
     [Header("Enviorment")]
     [SerializeField] private Transform tree;
-    [SerializeField] private Transform acornParent;
+    [SerializeField] private Transform parent;
 
-    [SerializeField] private GameObject acornPrefab;
+    [SerializeField] private GameObject prefab;
 
     [Header("Settings")]
 
@@ -18,7 +18,7 @@ public class AcornSpawner : MonoBehaviour
     [Tooltip("Randomizes An Angle Between those 2 Numbers")]
     [SerializeField] private Vector2 betweenAngle;
 
-    [SerializeField] private float spawnTime;
+    [SerializeField] private float spawnTime = 1;
     [SerializeField] private float currentTime;
 
     #region Unity Overwrites
@@ -27,7 +27,7 @@ public class AcornSpawner : MonoBehaviour
     {
         if (currentTime >= spawnTime)
         {
-            SpawnAcorn();
+            SpawnObstacle();
             currentTime = 0;
         }
         else
@@ -36,23 +36,24 @@ public class AcornSpawner : MonoBehaviour
 
     #endregion
 
-    float GetRandomAngle() {
-        float X = betweenAngle.x == 0 ? 1   : betweenAngle.x;
+    float GetRandomAngle()
+    {
+        float X = betweenAngle.x == 0 ? 1 : betweenAngle.x;
         float Y = betweenAngle.y == 0 ? 361 : betweenAngle.y;
 
         X = Mathf.FloorToInt(X + 0.5f);
         Y = Mathf.FloorToInt(Y + 0.5f);
 
-        return Random.Range(X, Y); 
+        return Random.Range(X, Y);
     }
 
-    void SpawnAcorn()
+    void SpawnObstacle()
     {
-        GameObject newAcorn   = Instantiate(acornPrefab, acornParent);
+        GameObject newAcorn = Instantiate(prefab, parent);
         TreeFollower follower = newAcorn.GetComponent<TreeFollower>();
 
         follower.angle = GetRandomAngle();
-        follower.tree  = tree;
+        follower.tree = tree;
         follower.distanceFromParent = 13;
 
         newAcorn.transform.position = newAcorn.transform.position + new Vector3(0, yOffset, 0);

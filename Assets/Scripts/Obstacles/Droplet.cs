@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Acorn : MonoBehaviour
+public class Droplet : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float fallingSpeed;
@@ -20,11 +20,6 @@ public class Acorn : MonoBehaviour
     private void Update()
     {
         CanBeDestroyed();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
     }
 
     #endregion

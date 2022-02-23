@@ -57,6 +57,6 @@ public class TreeFollower : MonoBehaviour
         this.transform.position = new Vector3(newPosition.x, myPosition.y, newPosition.z);
     }
 
-    public void Left (float amount)  { angle -= amount; }
+    public void Left (float amount) { angle -= amount; }
     public void Right(float amount) { angle += amount; }
 }
