@@ -29,15 +29,15 @@ public class TestControls : MonoBehaviour
     void Update()
     {
         Respawn();
-        
-        if (Input.GetKey(KeyCode.D))
-            treeFollower.Left(0.3f);
-        if (Input.GetKey(KeyCode.A))
-            treeFollower.Right(0.3f);
     }
     void FixedUpdate()
     {
         Jump();
+
+        if (Input.GetKey(KeyCode.D))
+            treeFollower.Left(0.3f);
+        if (Input.GetKey(KeyCode.A))
+            treeFollower.Right(0.3f);
     }
 
     void Respawn()
