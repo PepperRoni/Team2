@@ -8,6 +8,7 @@ public class TreeFollower : MonoBehaviour
     public Transform tree;
 
     [Header("Settings")]
+    public bool isStatic;
     public float distanceFromParent = 5;
     public float angle;
 
@@ -15,7 +16,8 @@ public class TreeFollower : MonoBehaviour
 
     private void Update()
     {
-        UpdateTarget();
+        if (!isStatic)
+            UpdateTarget();
     }
 
     // Some checks to see if tree exists n stuff
@@ -38,6 +40,9 @@ public class TreeFollower : MonoBehaviour
 
             return;
         }
+
+        if (isStatic)
+            UpdateTarget();
     }
 
     #endregion
@@ -57,6 +62,6 @@ public class TreeFollower : MonoBehaviour
         this.transform.position = new Vector3(newPosition.x, myPosition.y, newPosition.z);
     }
 
-    public void Left (float amount)  { angle -= amount; }
+    public void Left (float amount) { angle -= amount; }
     public void Right(float amount) { angle += amount; }
 }
