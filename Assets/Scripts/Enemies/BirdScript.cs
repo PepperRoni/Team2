@@ -11,6 +11,11 @@ public class BirdScript : MonoBehaviour
     private bool once;
 
     RaycastHit hit;
+    
+    private void Start()
+    {
+        once = true;
+    }
 
     void Update()
     {
