@@ -14,6 +14,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     [Tooltip("Adds Y Amount To New Acorn Y Position")]
     [SerializeField] private float yOffset;
+    [SerializeField] private float distanceFromTree;
 
     [Tooltip("Randomizes An Angle Between those 2 Numbers")]
     [SerializeField] private Vector2 betweenAngle;
@@ -54,7 +55,7 @@ public class ObstacleSpawner : MonoBehaviour
 
         follower.angle = GetRandomAngle();
         follower.tree = tree;
-        follower.distanceFromParent = 13;
+        follower.distanceFromParent = distanceFromTree;
 
         newAcorn.transform.position = newAcorn.transform.position + new Vector3(0, yOffset, 0);
     }

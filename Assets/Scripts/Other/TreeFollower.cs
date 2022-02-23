@@ -11,7 +11,12 @@ public class TreeFollower : MonoBehaviour
     public bool isStatic;
     public float distanceFromParent = 5;
     public float angle;
+
+    [Header("Move Settings")]
     public float moveSpeed = 5;
+    public bool smoothMovement;
+    public bool rotateTowardsTree;
+    public Vector3 rotationOffset;
 
     #region Unity Overwrites
 
@@ -60,11 +65,16 @@ public class TreeFollower : MonoBehaviour
         Vector3 newPosition = CalculatePosition();
         Vector3 myPosition  = this.transform.position;
 
-        this.transform.position = Vector3.Lerp(
-            myPosition, 
-            new Vector3(newPosition.x, myPosition.y, newPosition.z), 
-            Time.deltaTime * moveSpeed
-        );
+        Vector3 outputPosition = new Vector3(newPosition.x, myPosition.y, newPosition.z);
+
+        this.transform.position = smoothMovement ? Vector3.Lerp(myPosition, outputPosition, Time.deltaTime * moveSpeed) : outputPosition;
+
+        if (rotateTowardsTree)
+        {
+            Vector3 lookDirection = (tree.position - this.transform.position).normalized;
+
+            this.transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(rotationOffset);
+        }
     }
 
     public void Left (float amount) { angle -= amount; }
