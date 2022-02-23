@@ -21,7 +21,7 @@ public class Bug : MonoBehaviour
         treeFollower = this.GetComponent<TreeFollower>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (currentTime >= wanderTime)
         {
@@ -46,7 +46,7 @@ public class Bug : MonoBehaviour
         {
             yield return new WaitForSecondsRealtime(0.05f);
 
-            //treeFollower.Right(0.2f);
+            treeFollower.Right(0.2f);
 
             this.transform.position = new Vector3(
                 this.transform.position.x,

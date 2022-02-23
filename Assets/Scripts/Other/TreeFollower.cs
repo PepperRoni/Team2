@@ -20,7 +20,7 @@ public class TreeFollower : MonoBehaviour
 
     #region Unity Overwrites
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isStatic)
             UpdateTarget();
@@ -63,17 +63,20 @@ public class TreeFollower : MonoBehaviour
     void UpdateTarget()
     {
         Vector3 newPosition = CalculatePosition(angle, distanceFromParent);
-        Vector3 myPosition  = this.transform.position;
 
-        Vector3 outputPosition = new Vector3(newPosition.x, myPosition.y, newPosition.z);
+        Vector3 outputPosition = new Vector3(newPosition.x, this.transform.position.y, newPosition.z);
 
-        this.transform.position = smoothMovement ? Vector3.Lerp(myPosition, outputPosition, Time.deltaTime * moveSpeed) : outputPosition;
+        this.transform.position = smoothMovement ? Vector3.Lerp(this.transform.position, outputPosition, Time.deltaTime * moveSpeed) : outputPosition;
 
         if (rotateTowardsTree)
         {
             Vector3 lookDirection = (tree.position - this.transform.position).normalized;
 
-            this.transform.rotation = Quaternion.LookRotation(lookDirection) * Quaternion.Euler(rotationOffset);
+            this.transform.rotation = Quaternion.Lerp(
+                this.transform.rotation,
+                Quaternion.LookRotation(lookDirection) * Quaternion.Euler(rotationOffset),
+                Time.deltaTime * moveSpeed
+            );
         }
     }
 
