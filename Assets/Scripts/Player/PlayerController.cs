@@ -9,11 +9,12 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float thrust = 100;
-    [SerializeField] float timeInAir;
-    [SerializeField] float maxJumpTime;
-    [SerializeField] float distanceToGround;
-    [SerializeField] bool isGrounded;
-    [SerializeField] bool isJumping;
+
+    float maxJumpTime;
+    float timeInAir; 
+    float distanceToGround;
+    bool isGrounded;
+    bool isJumping;
 
     private Vector3 startPosition;
     private Rigidbody rb;
