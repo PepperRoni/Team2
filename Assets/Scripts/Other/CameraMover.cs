@@ -22,18 +22,19 @@ public class CameraMover : MonoBehaviour
             return;
 
         TreeFollower treeFollower = target.GetComponent<TreeFollower>();
+
         Vector3 newPosition = CalculatePosition(treeFollower.angle, distance);
-
-        //this.transform.LookAt(target.position + targetOffset);
-
-
         Vector3 lookDirection = (target.position - this.transform.position).normalized;
 
-        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(lookDirection) * Quaternion.Euler(targetOffset), Time.deltaTime * followSpeed);
+        this.transform.rotation = Quaternion.Lerp(
+            this.transform.rotation,
+            Quaternion.LookRotation(lookDirection) * Quaternion.Euler(targetOffset),
+            Time.deltaTime * followSpeed
+        );
 
         this.transform.position = Vector3.Lerp(
-            this.transform.position, 
-            new Vector3(newPosition.x, target.position.y, newPosition.z) + cameraOffset, 
+            this.transform.position,
+            new Vector3(newPosition.x, target.position.y, newPosition.z) + cameraOffset,
             Time.deltaTime * followSpeed
         );
     }
