@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Collider))]
 public class PlayerController : MonoBehaviour
 {
-    public float thrust = 100;
-    public float timeInAir;
-    public float distanceToGround;
-    public bool isGrounded;
+    [SerializeField] float thrust = 100;
+    [SerializeField] float timeInAir;
+    [SerializeField] float maxJumpTime;
+    [SerializeField] float distanceToGround;
+    [SerializeField] bool isGrounded;
+    [SerializeField] bool isJumping;
 
     private Vector3 startPosition;
     private Rigidbody rb;
@@ -45,10 +47,17 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && timeInAir <= maxJumpTime)
         {
             rb.AddForce(Vector2.up * thrust);
+            isJumping = true;
         }
+
+        if (rb.velocity.y < -0.1f || timeInAir >= maxJumpTime)
+        {
+            Physics.gravity = new Vector3(0, -25f, 0);
+        }
+
         if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround + 1f, floor))
         {
             isGrounded = false;
@@ -60,6 +69,16 @@ public class PlayerController : MonoBehaviour
             timeInAir = 0;
         }
 
+        if (timeInAir > 2f)
+        {
+            ResetJump();
+        }
+
     }
-    
+    void ResetJump()
+    {
+        Physics.gravity = new Vector3(0, -9f, 0);
+        isJumping = false;
+        timeInAir = 0;
+    }
 }
