@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6704034645557015344}
   - component: {fileID: 6704034645557015359}
   - component: {fileID: 6704034645557015347}
+  - component: {fileID: 1720177927}
   m_Layer: 0
   m_Name: BirdGift
   m_TagString: Untagged
@@ -114,3 +115,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &1720177927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704034645557015358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e1737ac340e7946ba474e8d8532d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  despawnTime: 5
