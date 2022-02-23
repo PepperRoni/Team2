@@ -22,6 +22,11 @@ public class Acorn : MonoBehaviour
         CanBeDestroyed();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
     #endregion
 
     private void CanBeDestroyed()

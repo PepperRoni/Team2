@@ -8,14 +8,17 @@ public class TreeFollower : MonoBehaviour
     public Transform tree;
 
     [Header("Settings")]
+    public bool isStatic;
     public float distanceFromParent = 5;
     public float angle;
+    public float moveSpeed = 5;
 
     #region Unity Overwrites
 
     private void Update()
     {
-        UpdateTarget();
+        if (!isStatic)
+            UpdateTarget();
     }
 
     // Some checks to see if tree exists n stuff
@@ -38,6 +41,9 @@ public class TreeFollower : MonoBehaviour
 
             return;
         }
+
+        if (isStatic)
+            UpdateTarget();
     }
 
     #endregion
@@ -54,9 +60,13 @@ public class TreeFollower : MonoBehaviour
         Vector3 newPosition = CalculatePosition();
         Vector3 myPosition  = this.transform.position;
 
-        this.transform.position = new Vector3(newPosition.x, myPosition.y, newPosition.z);
+        this.transform.position = Vector3.Lerp(
+            myPosition, 
+            new Vector3(newPosition.x, myPosition.y, newPosition.z), 
+            Time.deltaTime * moveSpeed
+        );
     }
 
-    public void Left (float amount)  { angle -= amount; }
+    public void Left (float amount) { angle -= amount; }
     public void Right(float amount) { angle += amount; }
 }
