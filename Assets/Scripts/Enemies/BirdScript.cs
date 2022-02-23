@@ -4,37 +4,21 @@ using UnityEngine;
 
 public class BirdScript : MonoBehaviour
 {
-    [Header("Bird Stats")]
     [SerializeField] private float birdSpeed;
-    [SerializeField] private float birdResetX;
-    [SerializeField] private float birdResetY;
-
-    [Header("Bird Timer")]
-    [SerializeField] private float birdTimer;
-    [SerializeField] private float birdTimerGoalOne;
-    [SerializeField] private float birdTimerGoalTwo;
-
+    [SerializeField] private float birdResetTime;
     [SerializeField] private GameObject birdGift;
 
     private bool once;
 
     RaycastHit hit;
 
-    void Start()
-    {
-        ResetBird();
-    }
-
     void Update()
     {
-        birdTimer += 1 * Time.deltaTime;
+        // Moves and rotates the bird
+        gameObject.GetComponent<TreeFollower>().Left(birdSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0, gameObject.GetComponent<TreeFollower>().angle, 0);
 
-        if (birdTimer < birdTimerGoalOne)
-            transform.position = new Vector3(transform.position.x - (birdSpeed * Time.deltaTime), transform.position.y, transform.position.z);
-
-        if (birdTimer > birdTimerGoalTwo)
-            ResetBird();
-
+        // Shoots down a raycast that when it hits the player drops a bird gift
         if (once == true)
         {
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity) && hit.transform.tag == "Player")
@@ -42,6 +26,7 @@ public class BirdScript : MonoBehaviour
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
                 DropGift();
                 once = false;
+                StartCoroutine(BirdGiftReset());
             }
             else
             {
@@ -50,15 +35,16 @@ public class BirdScript : MonoBehaviour
         }
     }
 
+    // Instantiates a bird gift prefab at the bird's location
     private void DropGift()
     {
         Instantiate(birdGift, transform.position, Quaternion.identity);
     }
 
-    private void ResetBird()
+    // Resets the once bool after a set amount of time
+    private IEnumerator BirdGiftReset()
     {
+        yield return new WaitForSeconds(birdResetTime);
         once = true;
-        birdTimer = 0;
-        transform.position = new Vector3(birdResetX, birdResetY, 0);
     }
 }

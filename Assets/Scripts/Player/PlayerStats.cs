@@ -57,7 +57,7 @@ public class PlayerStats : MonoBehaviour
 
     #endregion
 
-    private void Die()
+    public void Die()
     {
         print("💀");
     }
