@@ -1,33 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float timer;
     public TextMeshProUGUI timerDisplay;
-    public float highScore;
     public TextMeshProUGUI highScoreDisplay;
-    public float bestTime = 600;
-    public bool timerRunning;
+    [SerializeField] GameObject highScoreGO;
 
+    private float currentScore;
+    private bool timerRunning;
 
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("HighScore"))
+        {
+            PlayerPrefs.SetFloat("HighScore", 100000f);
+            highScoreGO.SetActive(false);
+        }
+        else
+        {
+            highScoreGO.SetActive(true);
+            highScoreDisplay.text = PlayerPrefs.GetFloat("HighScore").ToString("0.00");
+        }
+
         timerRunning = true;
-        highScoreDisplay.text = PlayerPrefs.GetFloat("HighScore", highScore).ToString();
     }
 
     void Update()
     {
         if(timerRunning)
         {
-            timer += Time.deltaTime;
-            DisplayTimer(timer);
+            currentScore += Time.deltaTime;
+            DisplayTimer(currentScore);
         }
         
+        //TODO: Switch this to when player dies instead
         if(Input.GetKeyDown(KeyCode.G))
         {
             StopTimer();
@@ -36,18 +47,19 @@ public class Timer : MonoBehaviour
 
     void DisplayTimer(float time)
     {
-        timerDisplay.text = string.Format("{0:0.0}", time);
+        timerDisplay.text = string.Format("{0:0.00}", time);
     }
 
     public void StopTimer()
     {
         timerRunning = false;
-        
-        if (timer < highScore)
-        {
-            highScore = timer;
-            PlayerPrefs.SetFloat("HighScore", Mathf.Round(timer));
-            highScoreDisplay.text = highScore.ToString();
+
+        if (currentScore < PlayerPrefs.GetFloat("HighScore"))
+        {        
+            highScoreGO.SetActive(true);
+            PlayerPrefs.SetFloat("HighScore", currentScore);
+            highScoreDisplay.text = currentScore.ToString("0.00");
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, currentScore);        
         }
     }
 }

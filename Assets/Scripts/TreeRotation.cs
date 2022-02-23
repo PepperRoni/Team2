@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TreeRotation : MonoBehaviour
 {
-    public float rotationSpeed = 1;
+    [SerializeField] private float rotationSpeed = 1;
 
     void FixedUpdate()
     {

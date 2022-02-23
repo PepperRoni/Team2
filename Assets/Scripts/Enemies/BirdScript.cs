@@ -7,10 +7,17 @@ public class BirdScript : MonoBehaviour
     [SerializeField] private float birdSpeed;
     [SerializeField] private float birdResetTime;
     [SerializeField] private GameObject birdGift;
+    [SerializeField] private Transform player;
+    [SerializeField] private float distanceFromPlayer;
 
     private bool once;
 
     RaycastHit hit;
+    
+    private void Start()
+    {
+        once = true;
+    }
 
     void Update()
     {
@@ -32,6 +39,12 @@ public class BirdScript : MonoBehaviour
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 1000, Color.white);
             }
+        }
+
+        if (player && player.GetComponent<TreeFollower>())
+        {
+            Vector3 myPosition = this.transform.position;
+            this.transform.position = new Vector3(myPosition.x, player.transform.position.y + distanceFromPlayer, myPosition.z);
         }
     }
 
