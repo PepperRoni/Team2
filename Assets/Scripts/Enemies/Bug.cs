@@ -36,11 +36,23 @@ public class Bug : MonoBehaviour
 
     IEnumerator LerpMovement()
     {
+        float X = Random.Range(-2, 2);
+        float Y = Random.Range(-2, 2);
+
+        X += this.transform.position.x;
+        Y += this.transform.position.y;
+
         for (int i = 0; i < 25; i++)
         {
             yield return new WaitForSecondsRealtime(0.05f);
 
-            treeFollower.Right(0.2f);
+            //treeFollower.Right(0.2f);
+
+            this.transform.position = new Vector3(
+                this.transform.position.x,
+                Mathf.Lerp(this.transform.position.y, Y, 0.04f),
+                this.transform.position.z
+            );
         }
     }
 }

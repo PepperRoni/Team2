@@ -54,15 +54,15 @@ public class TreeFollower : MonoBehaviour
     #endregion
 
     // Will calculate the exact position and rotation for the object
-    Vector3 CalculatePosition()
+    Vector3 CalculatePosition(float angle, float distance)
     {
-        return tree.position + (Quaternion.Euler(0, angle, 0) * Vector3.forward * distanceFromParent); ;
+        return tree.position + (Quaternion.Euler(0, angle, 0) * (Vector3.forward * distance)); ;
     }
 
     // Updates the Target
     void UpdateTarget()
     {
-        Vector3 newPosition = CalculatePosition();
+        Vector3 newPosition = CalculatePosition(angle, distanceFromParent);
         Vector3 myPosition  = this.transform.position;
 
         Vector3 outputPosition = new Vector3(newPosition.x, myPosition.y, newPosition.z);
