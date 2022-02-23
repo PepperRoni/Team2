@@ -98,8 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 0}
-  distanceFromParent: 5
+  isStatic: 0
+  distanceFromParent: 37.5
   angle: 0
+  moveSpeed: 5
+  smoothMovement: 0
 --- !u!114 &6411836352074803930
 MonoBehaviour:
   m_ObjectHideFlags: 0
