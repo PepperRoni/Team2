@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(TreeFollower))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float thrust = 100;
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 startPosition;
     private Rigidbody rb;
+    private TreeFollower treeFollower;
+
     [SerializeField] LayerMask floor;
 
     void Start()
@@ -32,6 +35,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Jump();
+        if (Input.GetKey(KeyCode.D))
+            treeFollower.Left(0.3f);
+        if (Input.GetKey(KeyCode.A))
+            treeFollower.Right(0.3f);
     }
 
     void Respawn()
