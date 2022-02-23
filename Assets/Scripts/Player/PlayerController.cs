@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        treeFollower = GetComponent<TreeFollower>();
         startPosition = transform.position;
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
     }
