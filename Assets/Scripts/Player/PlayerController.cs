@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask floor;
     private bool jumping;
     SpriteRenderer spriteRenderer;
+    private bool isWalking;
 
     void Start()
     {
@@ -51,24 +52,27 @@ public class PlayerController : MonoBehaviour
         Jump();
         if (Input.GetKey(KeyCode.D))
         {
+            animator.SetBool("isWalking", true);
             spriteRenderer.flipX = false;
-            treeFollower.Left(0.3f);
+            treeFollower.Left(0.2f);
             if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
             {
-                treeFollower.Left(0.5f);
+                treeFollower.Left(0.3f);
             }
         }
 
         if (Input.GetKey(KeyCode.A))
         {
+            animator.SetBool("isWalking", true);
             spriteRenderer.flipX = true;
 
-            treeFollower.Right(0.3f);
+            treeFollower.Right(0.2f);
             if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftShift))
             {
-                treeFollower.Right(0.5f);
+                treeFollower.Right(0.3f);
             }
         }
+        animator.SetBool("isWalking", false);
     }
 
     void Respawn()
@@ -113,17 +117,10 @@ public class PlayerController : MonoBehaviour
         {
             inGoalArea = true;
         }
-        //if (other.CompareTag("Floor"))
-        //{
-        //    grounded = true;
-        //}
-        //else
-        //    grounded = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        print(other.name);
         if (other.CompareTag("Floor"))
             grounded = true;
         else

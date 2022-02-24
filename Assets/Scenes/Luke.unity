@@ -677,8 +677,20 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3070533820463677577, guid: d9dda195f289d5f48b3f9913bbcb4945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070533820463677577, guid: d9dda195f289d5f48b3f9913bbcb4945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070533820463677577, guid: d9dda195f289d5f48b3f9913bbcb4945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070533820463677577, guid: d9dda195f289d5f48b3f9913bbcb4945, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3070533820463677577, guid: d9dda195f289d5f48b3f9913bbcb4945, type: 3}
       propertyPath: m_LocalPosition.y
@@ -719,10 +731,6 @@ PrefabInstance:
     - target: {fileID: 3751706935042687016, guid: d9dda195f289d5f48b3f9913bbcb4945, type: 3}
       propertyPath: m_Name
       value: BirdPoopi
-      objectReference: {fileID: 0}
-    - target: {fileID: 3751706935042687016, guid: d9dda195f289d5f48b3f9913bbcb4945, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dda195f289d5f48b3f9913bbcb4945, type: 3}
