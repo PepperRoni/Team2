@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menus/MainMenu.unity
-    guid: 531863bc56b50ac4a88ab404acfd7de3
-  - enabled: 1
-    path: Assets/Scenes/Nia.unity
-    guid: aefa61d2baa66fd4e90bee7cae7eb871
-  - enabled: 1
-    path: Assets/Scenes/Menus/DeathMenu.unity
-    guid: 83216846ee2d25a4a99bdefd83e11260
+    path: Assets/Scenes/Boy Playground.unity
+    guid: 4b3b9ce9865df92489d2f6a629c9b29d
   m_configObjects: {}
