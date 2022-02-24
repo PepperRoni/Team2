@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float thrust = 100;
+    public bool inGoalArea;
 
     float maxJumpTime;
     float timeInAir; 
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        inGoalArea = false;
         rb = GetComponent<Rigidbody>();
         treeFollower = GetComponent<TreeFollower>();
         startPosition = transform.position;
@@ -87,5 +89,17 @@ public class PlayerController : MonoBehaviour
         Physics.gravity = new Vector3(0, -9f, 0);
         isJumping = false;
         timeInAir = 0;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("DeathZone"))
+        {
+            Respawn();
+        }
+        if(other.CompareTag("Goal"))
+        {
+            inGoalArea = true;
+        }
     }
 }
