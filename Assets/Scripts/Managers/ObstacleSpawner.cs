@@ -12,6 +12,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     [Header("Settings")]
 
+    [SerializeField] private float despawnTime;
+
     [Tooltip("Adds Y Amount To New Acorn Y Position")]
     [SerializeField] private float yOffset;
     [SerializeField] private float distanceFromTree;
@@ -50,13 +52,16 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnObstacle()
     {
-        GameObject newAcorn = Instantiate(prefab, parent);
-        TreeFollower follower = newAcorn.GetComponent<TreeFollower>();
+        GameObject newObstacle = Instantiate(prefab, parent);
+        TreeFollower follower = newObstacle.GetComponent<TreeFollower>();
 
         follower.angle = GetRandomAngle();
         follower.tree = tree;
         follower.distanceFromParent = distanceFromTree;
 
-        newAcorn.transform.position = newAcorn.transform.position + new Vector3(0, yOffset, 0);
+        newObstacle.transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+        newObstacle.transform.position = newObstacle.transform.position + new Vector3(0, yOffset, 0);
+
+        Destroy(newObstacle, despawnTime);
     }
 }
