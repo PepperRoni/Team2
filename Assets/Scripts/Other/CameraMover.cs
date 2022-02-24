@@ -23,8 +23,8 @@ public class CameraMover : MonoBehaviour
 
         TreeFollower treeFollower = target.GetComponent<TreeFollower>();
 
-        Vector3 newPosition = CalculatePosition(treeFollower.angle, distance);
         Vector3 lookDirection = (target.position - this.transform.position).normalized;
+        Vector3 newPosition   = CalculatePosition(treeFollower.angle, distance);
 
         this.transform.rotation = Quaternion.Lerp(
             this.transform.rotation,
@@ -34,7 +34,7 @@ public class CameraMover : MonoBehaviour
 
         this.transform.position = Vector3.Lerp(
             this.transform.position,
-            new Vector3(newPosition.x, target.position.y, newPosition.z) + cameraOffset,
+            new Vector3(newPosition.x, target.position.y + cameraOffset.y, newPosition.z),
             Time.deltaTime * followSpeed
         );
     }
@@ -43,6 +43,6 @@ public class CameraMover : MonoBehaviour
 
     Vector3 CalculatePosition(float angle, float distance)
     {
-        return tree.position + (Quaternion.Euler(0, angle, 0) * (Vector3.forward * distance)); ;
+        return tree.position + (Quaternion.Euler(0, angle, 0) * (Vector3.forward * distance)) + cameraOffset;
     }
 }
