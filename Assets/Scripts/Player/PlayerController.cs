@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask floor;
     private bool jumping;
     SpriteRenderer spriteRenderer;
+    private bool isWalking;
 
     void Start()
     {
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
         Jump();
         if (Input.GetKey(KeyCode.D))
         {
+            animator.SetBool("isWalking", true);
             spriteRenderer.flipX = false;
             treeFollower.Left(0.2f);
             if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+            animator.SetBool("isWalking", true);
             spriteRenderer.flipX = true;
 
             treeFollower.Right(0.2f);
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
                 treeFollower.Right(0.3f);
             }
         }
+        animator.SetBool("isWalking", false);
     }
 
     void Respawn()
