@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(DeathZone))]
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI timerDisplay;
-    public TextMeshProUGUI highScoreDisplay;
+    [SerializeField] TextMeshProUGUI timerDisplay;
+    [SerializeField] TextMeshProUGUI highScoreDisplay;
     [SerializeField] GameObject highScoreGO;
+    PlayerController pController;
 
     private float currentScore;
     private bool timerRunning;
 
     private void Start()
     {
+        pController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (!PlayerPrefs.HasKey(SceneManager.GetActiveScene().name))
         {
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, 100000f);
@@ -38,8 +41,7 @@ public class Timer : MonoBehaviour
             DisplayTimer(currentScore);
         }
         
-        //TODO: Switch this to when player dies instead
-        if(Input.GetKeyDown(KeyCode.G))
+        if(pController.inGoalArea)
         {
             StopTimer();
         }

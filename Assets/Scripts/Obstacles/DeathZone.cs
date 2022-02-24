@@ -7,6 +7,7 @@ public class DeathZone : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private Transform target;
     [SerializeField] private float distanceFromTarget;
+    public bool isDead;
 
     #region Unity Overwrites
 
@@ -15,7 +16,10 @@ public class DeathZone : MonoBehaviour
         PlayerStats playerStats = other.GetComponent<PlayerStats>();
 
         if (other.CompareTag("Player") && playerStats)
+        {
             playerStats.Die();
+            isDead = true;
+        }
     }
 
     private void Start()
