@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+
                 getMoreCollectables.text = "You need to get all the collectables!";
             }
 
