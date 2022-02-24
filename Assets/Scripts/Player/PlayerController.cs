@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public bool inGoalArea;
+    public int collectedItems;
 
     [SerializeField] float jumpForce = 20;  
     [SerializeField] float maxJumpTime;
@@ -119,6 +120,12 @@ public class PlayerController : MonoBehaviour
         {
             inGoalArea = true;
         }
+
+        if (other.GetComponent<IInteractable>() != null)
+        {
+            IInteractable _interactable = other.GetComponent<IInteractable>();
+            _interactable.Interact(this);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -128,4 +135,6 @@ public class PlayerController : MonoBehaviour
         else
             grounded = false;
     }
+
+
 }

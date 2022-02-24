@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectables : MonoBehaviour
+public class Collectables : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Interact(PlayerController player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        player.collectedItems++;
+        Destroy(this.gameObject);
     }
 }
