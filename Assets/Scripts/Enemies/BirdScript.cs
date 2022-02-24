@@ -56,7 +56,8 @@ public class BirdScript : MonoBehaviour
     // Instantiates a bird gift prefab at the bird's location
     private void DropGift()
     {
-        Instantiate(birdGift, transform.position, Quaternion.identity);
+        GameObject poopi = Instantiate(birdGift, transform.position, Quaternion.identity);
+        poopi.transform.localScale = new Vector3(Random.Range(15, 30), Random.Range(15, 30), Random.Range(15, 30));
     }
 
     // Resets the once bool after a set amount of time
