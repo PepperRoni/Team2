@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Antenna : MonoBehaviour
 {
     [SerializeField] GameObject preAntennaPrefab;
     [SerializeField] GameObject particlesPrefab;
@@ -15,10 +15,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     }
     //4.2
-    void Update()
-    {
-        
-    }
 
     private IEnumerator PlayEndAnimation()
     {
