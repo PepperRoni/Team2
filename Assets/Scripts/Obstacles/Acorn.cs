@@ -8,13 +8,13 @@ public class Acorn : MonoBehaviour
     [SerializeField] private float fallingSpeed;
     [SerializeField] private float DestroyTime = 5;
 
+    public Vector3 fixedPosition;
+
     #region Unity Overwrites
 
     private void FixedUpdate()
     {
-        Vector3 myPosition = this.transform.position;
-
-        this.transform.position -= new Vector3(myPosition.x, fallingSpeed * Time.deltaTime, myPosition.z);
+        this.transform.position -= new Vector3(fixedPosition.x, fallingSpeed * Time.deltaTime, fixedPosition.z);
     }
 
     private void Update()

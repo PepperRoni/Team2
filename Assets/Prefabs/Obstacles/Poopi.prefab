@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 242187776532289767}
   - component: {fileID: 8240833088329534999}
   - component: {fileID: -8308703955431654511}
+  - component: {fileID: 7556652924220388232}
+  - component: {fileID: -1052382158764269872}
   m_Layer: 0
   m_Name: Poopi
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8218251398741232146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.673612, y: 1.035479, z: -2.222147}
-  m_LocalScale: {x: 16.15716, y: 16.15716, z: 16.15716}
+  m_LocalScale: {x: 22.2985, y: 22.2985, z: 22.2985}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,5 +100,32 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &7556652924220388232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218251398741232146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e1737ac340e7946ba474e8d8532d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poopiEffect: {fileID: 4502297558757937413, guid: 0410146ce0d52c5448bf87a87f27ee2f, type: 3}
+  despawnTime: 5
+--- !u!65 &-1052382158764269872
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8218251398741232146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.019238949, y: 0.037199765, z: 0.019238956}
+  m_Center: {x: 0, y: 0.008599884, z: -0.0000000018626451}

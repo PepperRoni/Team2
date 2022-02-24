@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BirdGift : MonoBehaviour
 {
+    [SerializeField] private GameObject poopiEffect;
     [SerializeField] private float despawnTime;
     private float despawnTimer;
 
@@ -19,8 +20,13 @@ public class BirdGift : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        Destroy(gameObject);
+        GameObject poopi = Instantiate(poopiEffect, this.transform.position, Quaternion.identity);
+
+        GetComponent<Renderer>().enabled = false;
+
+        Destroy(poopi, 2);
+        Destroy(gameObject, 0);
     }
 }

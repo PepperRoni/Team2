@@ -17,7 +17,7 @@ public class CameraMover : MonoBehaviour
 
     #region Unity Overwrites
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (target == null || !target.GetComponent<TreeFollower>())
             return;
