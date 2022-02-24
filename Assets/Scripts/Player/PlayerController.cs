@@ -24,9 +24,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] LayerMask floor;
     private bool jumping;
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
         jumpTime = maxJumpTime;
         inGoalArea = false;
@@ -38,13 +40,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Respawn();
-    
+       
+            //transform.eulerAngles = new Vector3(0, 0, 0);
+
+
+
     }
     void FixedUpdate()
     {
         Jump();
         if (Input.GetKey(KeyCode.D))
         {
+            spriteRenderer.flipX = false;
             treeFollower.Left(0.3f);
             if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
             {
@@ -54,6 +61,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+            spriteRenderer.flipX = true;
+
             treeFollower.Right(0.3f);
             if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftShift))
             {

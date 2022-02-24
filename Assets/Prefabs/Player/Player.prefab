@@ -125,7 +125,7 @@ MonoBehaviour:
   moveSpeed: 5
   smoothMovement: 1
   rotateTowardsTree: 1
-  rotationOffset: {x: 90, y: 0, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &4956065948383214310
 MonoBehaviour:
   m_ObjectHideFlags: 0
