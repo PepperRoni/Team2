@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool grounded;
     [SerializeField] Animator animator;
 
-    private float distanceToGround;
     private Vector3 startPosition;
     private Rigidbody rb;
     private TreeFollower treeFollower;
@@ -34,7 +33,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         treeFollower = GetComponent<TreeFollower>();
         startPosition = transform.position;
-        distanceToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
     void Update()
@@ -79,6 +77,7 @@ public class PlayerController : MonoBehaviour
         if (grounded && Input.GetKey(KeyCode.Space))
         {
             jumping = true;
+            grounded = false;
             jumpTime = 0;         
         }
 
@@ -91,11 +90,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) | jumpTime > maxJumpTime)
         {
             jumping = false;
-        }
-
-        if (jumpTime > maxJumpTime)
-        {
-            grounded = false;
             Physics.gravity = new Vector3(0, -50f, 0);
         }
     }
@@ -110,5 +104,12 @@ public class PlayerController : MonoBehaviour
         {
             inGoalArea = true;
         }
+        if (other.CompareTag("Floor"))
+        {
+            grounded = true;
+        }
+        else
+            grounded = false;
     }
 }
+

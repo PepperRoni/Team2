@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 5379771343988899866}
   - component: {fileID: 5379771343988899867}
   - component: {fileID: 5379771343988899868}
-  - component: {fileID: 5379771343988899869}
   - component: {fileID: 5379771343988899865}
   - component: {fileID: 1144104410831057807}
   - component: {fileID: 4956065948383214310}
   - component: {fileID: -567320155499324207}
+  - component: {fileID: 4088741260757899573}
+  - component: {fileID: 3763577815576999990}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -89,20 +90,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5379771343988899869
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5379771343988899870}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5379771343988899865
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,8 +141,8 @@ MonoBehaviour:
   inGoalArea: 0
   jumpForce: 25
   maxJumpTime: 3
-  timeInAir: 0
-  isGrounded: 0
+  jumpTime: 0
+  grounded: 0
   animator: {fileID: 0}
   floor:
     serializedVersion: 2
@@ -180,6 +167,32 @@ MonoBehaviour:
   stamina: 0
   staminaRegen: 0
   staminaRegenAmount: 0
+--- !u!65 &4088741260757899573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379771343988899870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9491079, y: 7.292783, z: 1}
+  m_Center: {x: -0.1908454, y: 3.3079891, z: 0}
+--- !u!65 &3763577815576999990
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379771343988899870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.628549, y: 0.82948077, z: 1}
+  m_Center: {x: -0.22901487, y: -0.15267628, z: 0}
 --- !u!1 &5701560469246367768
 GameObject:
   m_ObjectHideFlags: 0
