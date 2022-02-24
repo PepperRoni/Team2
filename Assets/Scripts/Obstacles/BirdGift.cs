@@ -4,29 +4,44 @@ using UnityEngine;
 
 public class BirdGift : MonoBehaviour
 {
-    [SerializeField] private GameObject poopiEffect;
     [SerializeField] private float despawnTime;
+    [SerializeField] private ParticleSystem shartBuster;
+    [SerializeField] private GameObject splatter;
     private float despawnTimer;
-
+    
     void Start()
     {
         despawnTimer = 0;
+        splatter.SetActive(false);
     }
 
     void Update()
     {
         despawnTimer += 1 * Time.deltaTime;
         if (despawnTimer > despawnTime)
-            Destroy(gameObject);
+            StartCoroutine(Explode());
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        GameObject poopi = Instantiate(poopiEffect, this.transform.position, Quaternion.identity);
+        StartCoroutine(Explode());
+    }
 
-        GetComponent<Renderer>().enabled = false;
+    private IEnumerator Explode()
+    {
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
+        shartBuster.Play();
+        splatter.SetActive(true);
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+    }
 
-        Destroy(poopi, 2);
-        Destroy(gameObject, 0);
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.DrawWireSphere(gameObject.transform.position, 2);
+        
     }
 }

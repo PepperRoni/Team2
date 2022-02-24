@@ -168,6 +168,10 @@ MonoBehaviour:
   isStatic: 0
   distanceFromParent: 14
   angle: 0
+  moveSpeed: 5
+  smoothMovement: 0
+  rotateTowardsTree: 0
+  rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1306811761596298415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdSpeed: 20
   birdResetTime: 5
-  birdGift: {fileID: 6704034645557015358, guid: 92556e29bff2ef847bba42c14a61102c, type: 3}
+  birdGift: {fileID: 0}
+  player: {fileID: 0}
+  distanceFromPlayer: 0
 --- !u!1 &2887972513520816435
 GameObject:
   m_ObjectHideFlags: 0

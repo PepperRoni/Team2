@@ -940,7 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201025588027002028}
   - component: {fileID: 2864898450952963082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
