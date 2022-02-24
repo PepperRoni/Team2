@@ -9,7 +9,6 @@ public class Launchpad : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            Debug.Log("bounce");
             collision.transform.GetComponent<Rigidbody>().AddForce(0, bouncePower, 0);
         }
     }
