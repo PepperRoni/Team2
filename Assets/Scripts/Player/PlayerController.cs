@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
         Jump();
         if (Input.GetKey(KeyCode.D))
         {
-            animator.SetBool("isWalking", true);
             spriteRenderer.flipX = false;
             treeFollower.Left(0.3f);
             if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
@@ -63,7 +62,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            animator.SetBool("isWalking", true);
             spriteRenderer.flipX = true;
             
             treeFollower.Right(0.3f);
@@ -72,7 +70,14 @@ public class PlayerController : MonoBehaviour
                 treeFollower.Right(0.5f);
             }
         }
-        animator.SetBool("isWalking", false);
+        if((Input.GetKey(KeyCode.D)) || Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("running", true);
+        }
+        else
+        {
+            animator.SetBool("running", false);
+        }
     }
 
     void Respawn()
