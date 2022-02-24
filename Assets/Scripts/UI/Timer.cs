@@ -16,15 +16,15 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("HighScore"))
+        if (!PlayerPrefs.HasKey(SceneManager.GetActiveScene().name))
         {
-            PlayerPrefs.SetFloat("HighScore", 100000f);
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, 100000f);
             highScoreGO.SetActive(false);
         }
         else
         {
             highScoreGO.SetActive(true);
-            highScoreDisplay.text = PlayerPrefs.GetFloat("HighScore").ToString("0.00");
+            highScoreDisplay.text = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name).ToString("0.00");
         }
 
         timerRunning = true;
@@ -54,7 +54,7 @@ public class Timer : MonoBehaviour
     {
         timerRunning = false;
 
-        if (currentScore < PlayerPrefs.GetFloat("HighScore"))
+        if (currentScore < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name))
         {        
             highScoreGO.SetActive(true);
             PlayerPrefs.SetFloat("HighScore", currentScore);
