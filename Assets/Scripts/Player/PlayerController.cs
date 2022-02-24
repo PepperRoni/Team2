@@ -55,10 +55,10 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             treeFollower.Left(0.2f);
-            if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
-            {
-                treeFollower.Left(0.3f);
-            }
+            //if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
+            //{
+            //    treeFollower.Left(0.21f);
+            //}
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -66,10 +66,10 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = true;
 
             treeFollower.Right(0.2f);
-            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftShift))
-            {
-                treeFollower.Right(0.3f);
-            }
+            //if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftShift))
+            //{
+            //    treeFollower.Right(0.21f);
+            //}
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
