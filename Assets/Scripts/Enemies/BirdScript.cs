@@ -48,7 +48,7 @@ public class BirdScript : MonoBehaviour
             this.transform.position = Vector3.Lerp(
                 myPosition,
                 new Vector3(myPosition.x, player.transform.position.y + distanceFromPlayer, myPosition.z),
-                Time.deltaTime
+                Time.deltaTime * 2 
             );
         }
     }
