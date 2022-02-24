@@ -44,7 +44,12 @@ public class BirdScript : MonoBehaviour
         if (player && player.GetComponent<TreeFollower>())
         {
             Vector3 myPosition = this.transform.position;
-            this.transform.position = new Vector3(myPosition.x, player.transform.position.y + distanceFromPlayer, myPosition.z);
+
+            this.transform.position = Vector3.Lerp(
+                myPosition,
+                new Vector3(myPosition.x, player.transform.position.y + distanceFromPlayer, myPosition.z),
+                Time.deltaTime
+            );
         }
     }
 
