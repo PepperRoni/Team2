@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool grounded;
     Animator animator;
 
+    public AudioSource audio;
+
     private Vector3 startPosition;
     private Rigidbody rb;
     private TreeFollower treeFollower;
@@ -43,10 +45,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Respawn();
-        }
+        Respawn();
 
         if (Math.Abs(rb.velocity.y) < 0.1)
             animator.SetFloat("Velocity", 0);
@@ -85,8 +84,11 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
+        if (transform.position.y <= startPosition.y - 15)
+        {
             string thisScene = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(thisScene);
+        }
     }
 
     void Jump()
@@ -96,7 +98,7 @@ public class PlayerController : MonoBehaviour
         {
             jumping = true;
             grounded = false;
-            jumpTime = 0;         
+            jumpTime = 0;
         }
 
         if(jumping)
@@ -114,20 +116,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if(other.CompareTag("Goal"))
+        if(other.CompareTag("DeathZone"))
         {
-            inGoalArea = true;
-            if(inGoalArea && collectedItems == 4)
-            {
-                print("Woooooooo you have collected all four items!!!!!!!!!!!!!!!");
-                //TODO: Play win cut scene 
-            }
-            else
-            {
-
-                getMoreCollectables.text = "You need to get all the collectables!";
-            }
+            Respawn();
         }
 
         if (other.GetComponent<IInteractable>() != null)
