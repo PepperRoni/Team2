@@ -78,15 +78,12 @@ public class PlayerController : MonoBehaviour
             if (isGrounded)
             {
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0);
-                stoppedJumping = false;
             }
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            timeInAir = 0;
-            stoppedJumping = true;
-        }
+            timeInAir = 0;        }
 
         if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround + 1f, floor))
         {
