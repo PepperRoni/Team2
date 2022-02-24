@@ -40,9 +40,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Respawn();
-       
-            //transform.eulerAngles = new Vector3(0, 0, 0);
 
+        if(Math.Abs(rb.velocity.y) < 0)
+        {
+            animator.SetFloat("Velocity", 0);
+        }
+        else
+            animator.SetFloat("Velocity", Math.Abs(rb.velocity.y));
 
 
     }
@@ -121,4 +125,3 @@ public class PlayerController : MonoBehaviour
             grounded = false;
     }
 }
-
