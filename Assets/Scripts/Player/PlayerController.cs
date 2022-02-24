@@ -45,8 +45,6 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
-        Camera.main.transform.position =
-        new Vector3(Camera.main.transform.position.x, transform.position.y, Camera.main.transform.position.z);
         if (transform.position.y <= startPosition.y - 15)
         {
             string thisScene = SceneManager.GetActiveScene().name;

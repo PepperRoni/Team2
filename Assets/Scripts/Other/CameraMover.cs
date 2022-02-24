@@ -11,12 +11,13 @@ public class CameraMover : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private Vector3 targetOffset;
     [SerializeField] private Vector3 cameraOffset;
+
     [SerializeField] private float distance = 7;
     [SerializeField] private float followSpeed = 5;
 
     #region Unity Overwrites
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (target == null || !target.GetComponent<TreeFollower>())
             return;
@@ -43,6 +44,6 @@ public class CameraMover : MonoBehaviour
 
     Vector3 CalculatePosition(float angle, float distance)
     {
-        return tree.position + (Quaternion.Euler(0, angle, 0) * (Vector3.forward * distance)) + cameraOffset;
+        return tree.position + (Quaternion.Euler(0, angle, 0) * (Vector3.forward * distance));
     }
 }
