@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 20;  
     [SerializeField] float maxJumpTime;
     [SerializeField] float timeInAir;
-    [SerializeField] bool grounded;
+    [SerializeField] bool isGrounded;
     [SerializeField] Animator animator;
-    Vector3 v3Velocity;
+
     private float distanceToGround;
     private Vector3 startPosition;
     private Rigidbody rb;
@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
         timeInAir = maxJumpTime;
         inGoalArea = false;
         rb = GetComponent<Rigidbody>();
-        Vector3 v3Velocity = rb.velocity;
         treeFollower = GetComponent<TreeFollower>();
         startPosition = transform.position;
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
@@ -40,9 +39,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Respawn();
-        Debug.Log(rb.velocity.y);
-        animator.SetFloat("Velocity", rb.velocity.y);
-        
+    
     }
     void FixedUpdate()
     {
@@ -80,10 +77,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            if (grounded)
+            if (isGrounded)
             {
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0);
-                timeInAir += Time.deltaTime;
             }
         }
 
@@ -92,6 +88,20 @@ public class PlayerController : MonoBehaviour
             timeInAir = 0;
         }
 
+        if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround + 1f, floor))
+        {
+            isGrounded = false;
+            animator.SetBool("isGrounded", isGrounded);
+
+            timeInAir += Time.deltaTime;
+        }
+        else
+        {
+            isGrounded = true;
+            animator.SetBool("isGrounded", isGrounded);
+
+            timeInAir = 0;
+        }
         if (timeInAir > maxJumpTime)
         {
             Physics.gravity = new Vector3(0, -50f, 0);
@@ -108,12 +118,5 @@ public class PlayerController : MonoBehaviour
         {
             inGoalArea = true;
         }
-        if (other.CompareTag("Floor"))
-        {
-            grounded = true;
-        }
-        else
-            grounded = false;
     }
-
 }
