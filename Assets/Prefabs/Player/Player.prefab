@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 5379771343988899865}
   - component: {fileID: 1144104410831057807}
   - component: {fileID: 4956065948383214310}
+  - component: {fileID: -567320155499324207}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -149,11 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 100
-  timeInAir: 0
-  maxJumpTime: 0
-  distanceToGround: 0
-  isGrounded: 0
-  isJumping: 0
+  isDead: 0
   floor:
     serializedVersion: 2
     m_Bits: 64
@@ -270,11 +267,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 100
-  timeInAir: 0
-  maxJumpTime: 2
-  distanceToGround: 0
-  isGrounded: 0
-  isJumping: 0
+  isDead: 0
   floor:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &-567320155499324207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379771343988899870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d53e4c3589b42c4698c217b46f0a59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  health: 0
+  healthRegen: 0
+  healthRegenAmount: 0
+  maxStamina: 0
+  stamina: 0
+  staminaRegen: 0
+  staminaRegenAmount: 0
