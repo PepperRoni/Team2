@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxJumpTime;
     [SerializeField] TextMeshProUGUI getMoreCollectables;
 
+    bool inInteract;
     float jumpTime;
     [SerializeField] bool grounded;
     Animator animator;
@@ -132,8 +133,14 @@ public class PlayerController : MonoBehaviour
 
         if (other.GetComponent<IInteractable>() != null)
         {
-            IInteractable _interactable = other.GetComponent<IInteractable>();
-            _interactable.Interact(this);
+            inInteract = true;
+            if (inInteract)
+            {
+                IInteractable _interactable = other.GetComponent<IInteractable>();
+                _interactable.Interact(this);
+                inInteract = false;
+            }
+            
         }
     }
 
