@@ -5907,6 +5907,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.057251737
       objectReference: {fileID: 0}
+    - target: {fileID: 7119905298544001012, guid: b1fc4be2ce4a2b34fbf5ceff7685d638, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7704173912693993016, guid: b1fc4be2ce4a2b34fbf5ceff7685d638, type: 3}
       propertyPath: m_Name
       value: GoalArea

@@ -66,7 +66,11 @@ public class TreeFollower : MonoBehaviour
 
         Vector3 outputPosition = new Vector3(newPosition.x, this.transform.position.y, newPosition.z);
 
-        this.transform.position = smoothMovement ? Vector3.Lerp(this.transform.position, outputPosition, Time.deltaTime * moveSpeed) : outputPosition;
+        this.transform.position = smoothMovement ? Vector3.Lerp(
+            this.transform.position, 
+            new Vector3(newPosition.x, this.transform.position.y, newPosition.z), 
+            Time.deltaTime * moveSpeed
+        ) : outputPosition;
 
         if (rotateTowardsTree)
         {
