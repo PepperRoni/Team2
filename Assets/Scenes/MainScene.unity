@@ -1853,6 +1853,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bf7b63eeb01f5e47b4df2338547ac52, type: 3}
+--- !u!4 &191686899 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2508531706476302170, guid: 2f4b13d95d4b8284db4fe85f1bc894bc, type: 3}
+  m_PrefabInstance: {fileID: 1966301724}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &186983352
 GameObject:
   m_ObjectHideFlags: 0
