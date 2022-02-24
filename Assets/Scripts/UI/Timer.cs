@@ -13,7 +13,6 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject highScoreGO;
     PlayerController pController;
 
-
     private float currentScore;
     private bool timerRunning;
 

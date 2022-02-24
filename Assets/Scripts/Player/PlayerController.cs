@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             if (isGrounded)
             {
