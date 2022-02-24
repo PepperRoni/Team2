@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 20;  
     [SerializeField] float maxJumpTime;
     [SerializeField] float timeInAir;
-    [SerializeField] bool isGrounded;
+    [SerializeField] bool grounded;
     [SerializeField] Animator animator;
     Vector3 v3Velocity;
     private float distanceToGround;
@@ -80,9 +80,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            if (isGrounded)
+            if (grounded)
             {
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0);
+                timeInAir += Time.deltaTime;
             }
         }
 
@@ -91,17 +92,6 @@ public class PlayerController : MonoBehaviour
             timeInAir = 0;
         }
 
-        if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround + 1f, floor))
-        {
-            isGrounded = false;
-
-            timeInAir += Time.deltaTime;
-        }
-        else
-        {
-            isGrounded = true;
-            timeInAir = 0;
-        }
         if (timeInAir > maxJumpTime)
         {
             Physics.gravity = new Vector3(0, -50f, 0);
@@ -118,5 +108,12 @@ public class PlayerController : MonoBehaviour
         {
             inGoalArea = true;
         }
+        if (other.CompareTag("Floor"))
+        {
+            grounded = true;
+        }
+        else
+            grounded = false;
     }
+
 }
