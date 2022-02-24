@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float jumpForce = 20;  
     [SerializeField] float maxJumpTime;
+    [SerializeField] TextMeshProUGUI getMoreCollectables;
 
     float jumpTime;
     [SerializeField] bool grounded;
@@ -119,6 +121,16 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("Goal"))
         {
             inGoalArea = true;
+            if(inGoalArea && collectedItems == 4)
+            {
+                print("Woooooooo you have collected all four items!!!!!!!!!!!!!!!");
+                //TODO: Play win cut scene 
+            }
+            else
+            {
+                getMoreCollectables.text = "You need to get all the collectables!";
+            }
+
         }
 
         if (other.GetComponent<IInteractable>() != null)
@@ -135,6 +147,4 @@ public class PlayerController : MonoBehaviour
         else
             grounded = false;
     }
-
-
 }

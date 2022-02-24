@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 33f4700725d7f614db95e550277793b8
+guid: 2d2536fad7eea674b813b718cb409558
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: running_sideeyes_0
+      name: Done_Running_Side_eE-2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac29d79d282b7d44a82bed379422925a
-      internalID: -902024053
+      spriteID: 1354aca7e540b284bafa85c741712f3d
+      internalID: 1590534504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_sideeyes_1
+      name: Done_Running_Side_eE-2_1
       rect:
         serializedVersion: 2
         x: 838
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 505f1da6fa8caa845888b4e532035568
-      internalID: 1304278868
+      spriteID: 5b216b0641e229e45ad6e1bb7496ad5f
+      internalID: 935570995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_sideeyes_2
+      name: Done_Running_Side_eE-2_2
       rect:
         serializedVersion: 2
         x: 1676
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2afd52fabff22d41a6da7acfdc542f4
-      internalID: -432634463
+      spriteID: 93c5161b352473745a5c892bbdf7b349
+      internalID: 1908769284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_sideeyes_3
+      name: Done_Running_Side_eE-2_3
       rect:
         serializedVersion: 2
         x: 2514
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32dd4dcbdbc4c8e408d813acbf2c65ff
-      internalID: 53160561
+      spriteID: 3f141f386fc23364e86caa2e1c37bd21
+      internalID: -249691898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_sideeyes_4
+      name: Done_Running_Side_eE-2_4
       rect:
         serializedVersion: 2
         x: 3352
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30355cd912296a94eb5e4d99330ac2d5
-      internalID: 1514609283
+      spriteID: a965612b6d7ba0c4080494cd2992b66d
+      internalID: -459673162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_sideeyes_5
+      name: Done_Running_Side_eE-2_5
       rect:
         serializedVersion: 2
         x: 4190
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50835b0bb158e05438a59cbe643ac03e
-      internalID: 516105627
+      spriteID: 581ffc5cf9fc2164db6ca19a832e3794
+      internalID: 344712455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running_sideeyes_6
+      name: Done_Running_Side_eE-2_6
       rect:
         serializedVersion: 2
         x: 5028
@@ -244,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffa570c3419ef6342b33683e9ac6dd91
-      internalID: -1073278628
+      spriteID: 009f0ef4ac0e39e44bcc39ce474a0f04
+      internalID: -1267409142
       vertices: []
       indices: 
       edges: []
@@ -253,7 +253,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7d0314bcb9c44774f82c2886f21c563c
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -261,13 +261,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      running_sideeyes_6: -1073278628
-      running_sideeyes_0: -902024053
-      running_sideeyes_5: 516105627
-      running_sideeyes_1: 1304278868
-      running_sideeyes_2: -432634463
-      running_sideeyes_4: 1514609283
-      running_sideeyes_3: 53160561
+      Done_Running_Side_eE-2_0: 1590534504
+      Done_Running_Side_eE-2_5: 344712455
+      Done_Running_Side_eE-2_1: 935570995
+      Done_Running_Side_eE-2_6: -1267409142
+      Done_Running_Side_eE-2_4: -459673162
+      Done_Running_Side_eE-2_3: -249691898
+      Done_Running_Side_eE-2_2: 1908769284
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
