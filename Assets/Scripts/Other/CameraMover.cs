@@ -60,7 +60,7 @@ public class CameraMover : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        followSpeed = 2;
+        followSpeed = 3;
         enabled = true;
 
         yield return new WaitForSeconds(3.5f);
