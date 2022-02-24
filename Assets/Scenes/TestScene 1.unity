@@ -1060,7 +1060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1144104410831057807, guid: 109a2d47b5c68ec45affc831a9139c11, type: 3}
       propertyPath: rotationOffset.x
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1144104410831057807, guid: 109a2d47b5c68ec45affc831a9139c11, type: 3}
       propertyPath: rotateTowardsTree
