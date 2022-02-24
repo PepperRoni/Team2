@@ -113,17 +113,10 @@ public class PlayerController : MonoBehaviour
         {
             inGoalArea = true;
         }
-        //if (other.CompareTag("Floor"))
-        //{
-        //    grounded = true;
-        //}
-        //else
-        //    grounded = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        print(other.name);
         if (other.CompareTag("Floor"))
             grounded = true;
         else
