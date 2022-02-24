@@ -7,6 +7,13 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject highScoreMenu;
+
+    public void OnRetryButton()
+    {
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+    }
+
     public void OnStartButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -43,7 +43,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Respawn();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Respawn();
+        }
 
         if (Math.Abs(rb.velocity.y) < 0.1)
             animator.SetFloat("Velocity", 0);
@@ -82,11 +85,8 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
-        if (transform.position.y <= startPosition.y - 15)
-        {
             string thisScene = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(thisScene);
-        }
     }
 
     void Jump()
@@ -114,10 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("DeathZone"))
-        {
-            Respawn();
-        }
+        
         if(other.CompareTag("Goal"))
         {
             inGoalArea = true;
@@ -131,7 +128,6 @@ public class PlayerController : MonoBehaviour
 
                 getMoreCollectables.text = "You need to get all the collectables!";
             }
-
         }
 
         if (other.GetComponent<IInteractable>() != null)

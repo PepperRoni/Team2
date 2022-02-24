@@ -9,8 +9,11 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerDisplay;
     [SerializeField] TextMeshProUGUI highScoreDisplay;
+    [SerializeField] TextMeshProUGUI collectablesDisplay;
+
     [SerializeField] GameObject highScoreGO;
     PlayerController pController;
+
 
     private float currentScore;
     private bool timerRunning;
@@ -20,7 +23,8 @@ public class Timer : MonoBehaviour
         pController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (!PlayerPrefs.HasKey(SceneManager.GetActiveScene().name))
         {
-            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, 100000f);
+            print("we");
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, 10000f);
             highScoreGO.SetActive(false);
         }
         else
@@ -44,6 +48,8 @@ public class Timer : MonoBehaviour
         {
             StopTimer();
         }
+        pController.collectedItems.ToString();
+        collectablesDisplay.text = "Collectables: " + pController.collectedItems.ToString() + "/5";
     }
 
     void DisplayTimer(float time)

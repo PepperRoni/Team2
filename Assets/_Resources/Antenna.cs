@@ -7,12 +7,13 @@ public class Antenna : MonoBehaviour
     [SerializeField] GameObject preAntennaPrefab;
     [SerializeField] GameObject ps;
     [SerializeField] GameObject doneAntennaPrefab;
-    Animator animator;
-    void Start()
-    {
-       
-        
+    [SerializeField] GameObject retryButton;
 
+    Animator animator;
+
+    private void Start()
+    {
+        retryButton.SetActive(false);
     }
 
     private void Update()
@@ -31,6 +32,8 @@ public class Antenna : MonoBehaviour
         {
             print("wooo!!!!");
             StartCoroutine(PlayEndAnimation());
+            retryButton.SetActive(true);
+            
         }
         else
         {
