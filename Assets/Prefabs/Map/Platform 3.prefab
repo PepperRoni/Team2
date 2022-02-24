@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1441197200333920603}
   - component: {fileID: 5283303283453791267}
   - component: {fileID: 1258557670119463440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube37
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2508531706476302170}
   - component: {fileID: 6852146624338227026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 6714912625884335804}
   - component: {fileID: 717794745258696673}
   - component: {fileID: 1602526247254630910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 556697332461815724}
   - component: {fileID: 6852271592555194190}
   - component: {fileID: 7685202845079860751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube38
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 4641995792147854132}
   - component: {fileID: 4812388872339166958}
   - component: {fileID: 1186247809270916901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube36
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 2286269682459077019}
   - component: {fileID: 1409507764596092860}
   - component: {fileID: 789335453435257032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 8763522085872308050}
   - component: {fileID: 6218975595420482202}
   - component: {fileID: 448206946645229009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 2014687332766461857}
   - component: {fileID: 548736686729988089}
   - component: {fileID: 3794618360920739988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCube32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4959232878427801301}
   - component: {fileID: 6809476306646085945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
