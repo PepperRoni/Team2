@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float jumpForce = 20;  
     [SerializeField] float maxJumpTime;
-    [SerializeField] float timeInAir;
+
+    [SerializeField] float jumpTime;
     [SerializeField] bool grounded;
     [SerializeField] Animator animator;
     Vector3 v3Velocity;
@@ -22,13 +23,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private TreeFollower treeFollower;
 
-
     [SerializeField] LayerMask floor;
+    private bool jumping;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        timeInAir = maxJumpTime;
+        jumpTime = maxJumpTime;
         inGoalArea = false;
         rb = GetComponent<Rigidbody>();
         Vector3 v3Velocity = rb.velocity;
@@ -78,22 +79,26 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
 
-        if (Input.GetKey(KeyCode.Space))
+        if (grounded && Input.GetKey(KeyCode.Space))
         {
-            if (grounded)
-            {
-                rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0);
-                timeInAir += Time.deltaTime;
-            }
+            jumping = true;
+            jumpTime = 0;         
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if(jumping)
         {
-            timeInAir = 0;
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, 0);
+            jumpTime += Time.deltaTime;
         }
 
-        if (timeInAir > maxJumpTime)
+        if (Input.GetKeyUp(KeyCode.Space) | jumpTime > maxJumpTime)
         {
+            jumping = false;
+        }
+
+        if (jumpTime > maxJumpTime)
+        {
+            grounded = false;
             Physics.gravity = new Vector3(0, -50f, 0);
         }
     }
