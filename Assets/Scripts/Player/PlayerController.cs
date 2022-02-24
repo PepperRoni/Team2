@@ -46,12 +46,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Respawn();
-
         if (Math.Abs(rb.velocity.y) < 0.1)
             animator.SetFloat("Velocity", 0);
         else
             animator.SetFloat("Velocity", rb.velocity.y);
+
+        if (Input.GetKeyDown(KeyCode.P) && inGoalArea)
+        {
+            Respawn();
+        }
     }
     void FixedUpdate()
     {
@@ -85,11 +88,8 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
-        if (transform.position.y <= startPosition.y - 15)
-        {
-            string thisScene = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(thisScene);
-        }
+        string thisScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(thisScene);
     }
 
     void Jump()

@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Collectables : MonoBehaviour, IInteractable
 {
+    private bool collected;
+
     public void Interact(PlayerController player)
     {
-        player.collectedItems++;
-        Destroy(this.gameObject);
+        if (!collected)
+        {
+            collected = true;
+            player.collectedItems++;
+            Destroy(this.gameObject);
+        }
     }
 }

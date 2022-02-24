@@ -34,6 +34,7 @@ public class Antenna : MonoBehaviour
             StartCoroutine(PlayEndAnimation());
             retryButton.SetActive(true);
             controller.collectedItems = 0;
+            controller.inGoalArea = true;
         }
         else
         {
