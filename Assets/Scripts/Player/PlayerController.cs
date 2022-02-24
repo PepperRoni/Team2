@@ -9,18 +9,14 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(TreeFollower))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float jumpForce = 20;
     public bool inGoalArea;
 
+    [SerializeField] float jumpForce = 20;  
     [SerializeField] float maxJumpTime;
     [SerializeField] float timeInAir;
-    float distanceToGround;
-    [SerializeField] float coyoteTime = 0.2f;
-    [SerializeField] float coyoteCounter;
-
     [SerializeField] bool isGrounded;
-    bool stoppedJumping;
 
+    private float distanceToGround;
     private Vector3 startPosition;
     private Rigidbody rb;
     private TreeFollower treeFollower;
