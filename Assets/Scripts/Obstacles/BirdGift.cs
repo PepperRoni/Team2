@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BirdGift : MonoBehaviour
@@ -15,6 +14,7 @@ public class BirdGift : MonoBehaviour
         splatter.SetActive(false);
     }
 
+    // Counts up the despawner timer and starts the exlposion coroutine when despawntimer reaches a certain time
     void Update()
     {
         despawnTimer += 1 * Time.deltaTime;
@@ -22,11 +22,13 @@ public class BirdGift : MonoBehaviour
             StartCoroutine(Explode());
     }
 
+    // starts the exlposion coroutine when despawntimer reaches a certain time when the poop hits something
     private void OnCollisionEnter(Collision collision)
     {
         StartCoroutine(Explode());
     }
 
+    // First turns off a few things on the poop, then plays a particle effect and activates splatter and after a certain ammount of time it destroys the gameobject
     private IEnumerator Explode()
     {
         gameObject.GetComponent<MeshRenderer>().enabled = false;
@@ -38,10 +40,9 @@ public class BirdGift : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Draws a circle for the splash range
     private void OnDrawGizmos()
     {
-
         Gizmos.DrawWireSphere(gameObject.transform.position, 2);
-        
     }
 }

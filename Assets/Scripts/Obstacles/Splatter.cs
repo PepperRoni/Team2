@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Splatter : MonoBehaviour
@@ -13,6 +12,7 @@ public class Splatter : MonoBehaviour
         splatterImage.SetActive(false);
     }
 
+    // Triggers de splatter effect when the player is in the splash range of the poop
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && once == true)
@@ -24,6 +24,7 @@ public class Splatter : MonoBehaviour
             StartCoroutine(MissSplash());
     }
 
+    // Makes it so that the splatter effect can't be activated after the poop misses the player
     private IEnumerator MissSplash()
     {
         yield return new WaitForSeconds(0.1f);
