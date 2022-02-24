@@ -152,10 +152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGoalArea: 0
-  jumpForce: 20
+  jumpForce: 25
   maxJumpTime: 3
   timeInAir: 0
   isGrounded: 0
+  animator: {fileID: 0}
   floor:
     serializedVersion: 2
     m_Bits: 64
