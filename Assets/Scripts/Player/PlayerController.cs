@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxJumpTime;
 
     float jumpTime;
-    bool grounded;
+    [SerializeField] bool grounded;
     Animator animator;
 
     private Vector3 startPosition;
@@ -40,11 +40,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Respawn();
-       
-            //transform.eulerAngles = new Vector3(0, 0, 0);
 
-
-
+        if (Math.Abs(rb.velocity.y) < 0.05)
+            animator.SetFloat("Velocity", 0);
+        else
+            animator.SetFloat("Velocity", rb.velocity.y);
     }
     void FixedUpdate()
     {
@@ -113,12 +113,20 @@ public class PlayerController : MonoBehaviour
         {
             inGoalArea = true;
         }
+        //if (other.CompareTag("Floor"))
+        //{
+        //    grounded = true;
+        //}
+        //else
+        //    grounded = false;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        print(other.name);
         if (other.CompareTag("Floor"))
-        {
             grounded = true;
-        }
         else
             grounded = false;
     }
 }
-

@@ -70,7 +70,12 @@ public class TreeFollower : MonoBehaviour
 
         if (rotateTowardsTree)
         {
-            Vector3 lookDirection = (tree.position - this.transform.position).normalized;
+            Vector3 myPosition = this.transform.position;
+            Vector3 treePosition = tree.position;
+
+            treePosition.y = myPosition.y;
+
+            Vector3 lookDirection = (treePosition - myPosition).normalized;
 
             this.transform.rotation = Quaternion.Lerp(
                 this.transform.rotation,
