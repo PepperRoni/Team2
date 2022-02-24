@@ -140,10 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGoalArea: 0
   jumpForce: 25
-  maxJumpTime: 3
-  jumpTime: 0
-  grounded: 0
-  animator: {fileID: 0}
+  maxJumpTime: 0.05
   floor:
     serializedVersion: 2
     m_Bits: 64

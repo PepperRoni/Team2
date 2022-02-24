@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 20;  
     [SerializeField] float maxJumpTime;
 
-    [SerializeField] float jumpTime;
-    [SerializeField] bool grounded;
-    [SerializeField] Animator animator;
+    float jumpTime;
+    bool grounded;
+    Animator animator;
 
     private Vector3 startPosition;
     private Rigidbody rb;
