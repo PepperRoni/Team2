@@ -149,8 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d106ea274f8324d94ce9b98421d815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 100
-  isDead: 0
+  jumpForce: 100
+  inGoalArea: 0
+  maxJumpTime: 1
   floor:
     serializedVersion: 2
     m_Bits: 64
@@ -231,7 +232,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &1144104410831057807
@@ -266,8 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d106ea274f8324d94ce9b98421d815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 100
-  isDead: 0
+  jumpForce: 20
+  inGoalArea: 0
+  maxJumpTime: 3
   floor:
     serializedVersion: 2
     m_Bits: 0
