@@ -33,7 +33,7 @@ public class Antenna : MonoBehaviour
             print("wooo!!!!");
             StartCoroutine(PlayEndAnimation());
             retryButton.SetActive(true);
-            
+            controller.collectedItems = 0;
         }
         else
         {

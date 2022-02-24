@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: floor.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 4956065948383214310, guid: 109a2d47b5c68ec45affc831a9139c11, type: 3}
+      propertyPath: collectedItems
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5379771343988899866, guid: 109a2d47b5c68ec45affc831a9139c11, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8656,8 +8660,8 @@ GameObject:
   - component: {fileID: 972984517}
   - component: {fileID: 972984520}
   - component: {fileID: 972984519}
-  - component: {fileID: 972984518}
   - component: {fileID: 972984521}
+  - component: {fileID: 972984522}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -8680,20 +8684,6 @@ Transform:
   m_Father: {fileID: 660178135}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: -20.332, z: 0}
---- !u!64 &972984518
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972984516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &972984519
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8760,6 +8750,19 @@ MonoBehaviour:
   ps: {fileID: 9124434434345475891, guid: 332967bcd4cd5c343b5120413f736e75, type: 3}
   doneAntennaPrefab: {fileID: 2785708825625475796, guid: 1f92b33249e48c34e9387a7772db23ff, type: 3}
   retryButton: {fileID: 1677175062}
+--- !u!65 &972984522
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972984516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0262947, y: 4.395787, z: 7.2554665}
+  m_Center: {x: -3.0963948, y: 2.590464, z: -23.59221}
 --- !u!4 &994167967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2508531706476302170, guid: 2f4b13d95d4b8284db4fe85f1bc894bc, type: 3}
