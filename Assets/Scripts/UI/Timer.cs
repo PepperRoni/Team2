@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-[RequireComponent(typeof(DeathZone))]
 public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerDisplay;

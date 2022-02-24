@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         Respawn();
 
-        if (Math.Abs(rb.velocity.y) < 0.05)
+        if (Math.Abs(rb.velocity.y) < 0.1)
             animator.SetFloat("Velocity", 0);
         else
             animator.SetFloat("Velocity", rb.velocity.y);
@@ -53,31 +53,28 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             spriteRenderer.flipX = false;
-            treeFollower.Left(0.3f);
+            treeFollower.Left(0.2f);
             if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
             {
-                treeFollower.Left(0.5f);
+                treeFollower.Left(0.3f);
             }
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             spriteRenderer.flipX = true;
-            
-            treeFollower.Right(0.3f);
+
+            treeFollower.Right(0.2f);
             if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftShift))
             {
-                treeFollower.Right(0.5f);
+                treeFollower.Right(0.3f);
             }
         }
-        if((Input.GetKey(KeyCode.D)) || Input.GetKey(KeyCode.A))
-        {
-            animator.SetBool("running", true);
-        }
+
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+            animator.SetBool("IsWalking", true);
         else
-        {
-            animator.SetBool("running", false);
-        }
+            animator.SetBool("IsWalking", false);
     }
 
     void Respawn()
