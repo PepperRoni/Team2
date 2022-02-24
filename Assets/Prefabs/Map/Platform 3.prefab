@@ -119,6 +119,7 @@ Transform:
   - {fileID: 4641995792147854132}
   - {fileID: 1441197200333920603}
   - {fileID: 556697332461815724}
+  - {fileID: 4959232878427801301}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -33.835, y: 89.344, z: 87.747}
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2843532858853095181}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecc4a1edaaafff64bb99de35f3204308, type: 3}
   m_Name: 
@@ -640,3 +641,48 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &9054426125571269364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4959232878427801301}
+  - component: {fileID: 6809476306646085945}
+  m_Layer: 0
+  m_Name: Collision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4959232878427801301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054426125571269364}
+  m_LocalRotation: {x: 0.008083006, y: -0.9105509, z: -0.021840522, w: 0.4127405}
+  m_LocalPosition: {x: -0.471, y: 0.485, z: 0.083}
+  m_LocalScale: {x: 0.3767423, y: 0.09243584, z: 1.5943127}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2508531706476302170}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: -1.897, y: -131.201, z: -1.878}
+--- !u!65 &6809476306646085945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054426125571269364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
