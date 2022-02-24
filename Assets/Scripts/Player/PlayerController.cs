@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float timeInAir;
     [SerializeField] bool isGrounded;
     [SerializeField] Animator animator;
-
+    Vector3 v3Velocity;
     private float distanceToGround;
     private Vector3 startPosition;
     private Rigidbody rb;
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         timeInAir = maxJumpTime;
         inGoalArea = false;
         rb = GetComponent<Rigidbody>();
+        Vector3 v3Velocity = rb.velocity;
         treeFollower = GetComponent<TreeFollower>();
         startPosition = transform.position;
         distanceToGround = GetComponent<Collider>().bounds.extents.y;
@@ -39,7 +40,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Respawn();
-    
+        Debug.Log(rb.velocity.y);
+        animator.SetFloat("Velocity", rb.velocity.y);
+        
     }
     void FixedUpdate()
     {
@@ -91,15 +94,12 @@ public class PlayerController : MonoBehaviour
         if (!Physics.Raycast(transform.position, Vector3.down, distanceToGround + 1f, floor))
         {
             isGrounded = false;
-            animator.SetBool("isGrounded", isGrounded);
 
             timeInAir += Time.deltaTime;
         }
         else
         {
             isGrounded = true;
-            animator.SetBool("isGrounded", isGrounded);
-
             timeInAir = 0;
         }
         if (timeInAir > maxJumpTime)
